@@ -2,7 +2,15 @@ import { u64 } from "@saberhq/token-utils";
 import { writeFileSync } from "fs";
 
 import airdropDataRaw from "../data/airdrop-amounts.json";
+// import airdropDataRaw from "../data/ignition-seagrass-airdrop-amounts.json";
+// import airdropDataRaw from "../data/riptide-seagrass-airdrop-amounts.json";
+// import airdropDataRaw from "../data/riptide-and-fossil-moray-airdrop-amounts.json";
 import { parseBalanceMap } from "../src/utils";
+
+const outPath = "data/distributor-info.json";
+// const outPath = "data/ignition-seagrass-distributor-info.json";
+// const outPath = "data/riptide-seagrass-distributor-info.json";
+// const outPath = "data/riptide-moray-distributor-info.json";
 
 const main = () => {
   const balanceMap: { [authority: string]: u64 } = {};
@@ -40,10 +48,7 @@ const main = () => {
     claims,
   };
 
-  writeFileSync(
-    "data/distributor-info.json",
-    JSON.stringify(merkleDistributorInfo, null, 2)
-  );
+  writeFileSync(outPath, JSON.stringify(merkleDistributorInfo, null, 2));
 };
 
 main();

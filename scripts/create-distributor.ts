@@ -10,8 +10,12 @@ import path from "path";
 import invariant from "tiny-invariant";
 
 import airdropDataRaw from "../data/airdrop-amounts.json";
+// import airdropDataRaw from "../data/ignition-seagrass-airdrop-amounts.json";
+// import airdropDataRaw from "../data/riptide-seagrass-airdrop-amounts.json";
+// import airdropDataRaw from "../data/riptide-and-fossil-moray-airdrop-amounts.json";
 import { MerkleDistributorSDK } from "../src/sdk";
 import { parseBalanceMap } from "../src/utils/parse-balance-map";
+import "dotenv/config";
 
 const readKeyfile = (filePath: string): Keypair => {
   if (filePath[0] == "~") {
